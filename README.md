@@ -1,14 +1,14 @@
 # Wi-Fi Shadow: Passive RF Sensing Radar
 
-[cite_start]Wi-Fi Shadow is an opportunistic RF sensing application that turns an ordinary laptop into a passive occupancy and motion detector[cite: 4, 5]. [cite_start]By treating ambient Wi-Fi signals as a continuous radar illumination field, the system tracks physical disruptions in the environment without using cameras[cite: 5].
+**Wi-Fi Shadow** is an opportunistic RF sensing application that turns an ordinary laptop into a passive occupancy and motion detector. By treating ambient Wi-Fi signals as a continuous radar illumination field, the system tracks physical disruptions in the environment without using cameras.
 
 ## How It Works
-* [cite_start]**The Physics:** The human body is roughly 70% water, meaning it attenuates, scatters, and refracts RF signals[cite: 7, 8]. [cite_start]When someone moves through a room, they disrupt static multipath propagation, causing high-variance fluctuations in the Received Signal Strength Indicator (RSSI)[cite: 6, 9, 11].
-* [cite_start]**The AI:** An unsupervised **Isolation Forest** model is trained inside Google Colab exclusively on a quiet, still-room baseline dataset[cite: 153, 451, 452]. [cite_start]It learns the "fingerprint" of the empty room and highlights dynamic changes as physical structural anomalies[cite: 12].
+**The Physics:** The human body is roughly 70% water, meaning it attenuates, scatters, and refracts RF signals. When someone moves through a room, they disrupt static multipath propagation, causing high-variance fluctuations in the Received Signal Strength Indicator (RSSI).
+**The AI:** An unsupervised **Isolation Forest** model is trained inside Google Colab exclusively on a quiet, still-room baseline dataset. It learns the "fingerprint" of the empty room and highlights dynamic changes as physical structural anomalies.
 
 ## File Descriptions
-* [cite_start]`harvester.py`: Automatically detects the operating system (Windows or Linux) and executes native command-line queries to gather un-cached Wi-Fi telemetry[cite: 22, 43]. [cite_start]It outputs a pivoted time-series matrix[cite: 22].
-* [cite_start]`wifishadow_daemon.py`: The live background deployment script[cite: 478]. [cite_start]It loads the trained AI model, collects real-time Wi-Fi signal snapshots every 400 milliseconds, extracts variance profiles, and outputs motion alerts[cite: 496, 532, 551, 560].
+`harvester.py`: Automatically detects the operating system (Windows or Linux) and executes native command-line queries to gather un-cached Wi-Fi telemetry. It outputs a pivoted time-series matrix.
+`wifishadow_daemon.py`: The live background deployment script. It loads the trained AI model, collects real-time Wi-Fi signal snapshots every 400 milliseconds, extracts variance profiles, and outputs motion alerts.
 
 ## Installation & Setup
 
