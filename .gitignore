@@ -1,0 +1,9 @@
+# Ignore local telemetry data collected in your specific room
+wifi_signal_matrix.csv
+
+# Ignore the trained AI model weights file
+wifishadow_model.p
+
+# Python caching files
+__pycache__/
+*.pyc
